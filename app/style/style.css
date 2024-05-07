@@ -1,0 +1,142 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: rgb(40, 40, 40);
+}
+
+#qrcode{
+	background-color: white;
+	padding: 10px;
+	position: absolute;
+	bottom: 11%;
+	left: 2%;
+	border-radius: 4px;
+}
+
+.maincode{
+	position: absolute;
+	margin-left: 5%;
+	margin-top: 7%;
+	color: white;
+	height: 76%;
+}
+
+.maincode button{
+	padding: 10px;
+	border: none;
+	margin: 10px;
+	width: 180px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	color: #dddd;
+	background-color: rgb(40, 40, 40);
+	font-size: 9pt;
+	font-family: sans-serif;
+}
+
+.maincode button i{
+	margin-right: 10px;
+	font-size: 14pt;
+}
+
+.grupButtons{
+	position: absolute;
+	bottom: 10%;
+	left: 38%;
+}
+
+#codigo {
+	letter-spacing: 10px;
+  	display: inline-block;
+  	font-weight: 600;
+  	padding: 18px;
+  	font-size: 15pt;
+  	margin-top: 20px;
+  	background-color: rgb(30, 30, 30);
+  	border-radius: 10px;
+  	transition: 0.5s;
+}
+
+#codigo:hover{
+	transform: scale(1.1);
+	background-color: gb(34, 34, 34);
+	cursor: pointer;
+}
+
+.btn_copy{
+	position:  relative;
+}
+
+.btn_copy.active::before{
+	content: "Copiado!";
+	padding: 5px 8px;
+	margin-bottom: 5px;
+	position: absolute;
+	right: 0px;
+	bottom: -19px;
+	font-size: 12px;
+	letter-spacing: 0px;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 0px;
+	background: rgb(70, 70, 70);
+	color: #dddd;
+	transform: scale(0);
+	transition: 0.5s;
+}
+
+.btn_copy.active::before{
+	transform: scale(1);
+}
+
+.footer{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	background: rgba(0,255,0,0.20);
+	color:white;
+	font-size: 9pt;
+	padding: 5px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.host{
+	background: rgba(40, 40, 40, 0.5);
+	padding: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 20px;
+	margin-right: 10px
+}
+
+.hostPort{
+	font-weight: 600
+}
+
+.servidor{
+	display: flex;
+	align-items: center;
+}
+
+
+/* Pagina 2 Scanner */
+
+iframe{
+	width: 100%;
+	height: 100%;
+}
+
+
+#QuadroScanner{
+	position: absolute;
+	margin: 0 auto;
+	top: 50%;
+
+}

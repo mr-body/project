@@ -1,0 +1,72 @@
+body{
+	overflow: hidden;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.celular{
+	margin-top: 22%;
+	width: 210px;
+	height: 437px;
+	background: url('../../image/tela.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	padding: 9px;
+}
+
+.tela {
+  position: relative;
+  /*background: linear-gradient(45deg, #000, #333);*/
+  background: black;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 5px rgba(80, 80, 80, 0.2) inset, 
+              0 0 10px 5px rgba(80, 80, 80, 0.2) inset;
+
+  cursor: pointer;
+}
+
+
+.loading{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: 2.4s;
+}
+
+.loading #marca{
+	margin-top: 70px;
+	color: white;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.loading #modelo{
+	color: white;
+}
+
+.loading #versao{
+	color: #efefef;
+	position: absolute;
+	bottom: 5%;
+}
+
+.loading #start{
+	border: none;
+	margin-top: 24px;
+	color: white;
+	width: 100px;
+	background: transparent;
+	font-size: 9pt;
+	height: 100px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+}
+
+.loading #start:active {
+  transform: scale(1.1);
+  border: 2px solid #fff;
+}

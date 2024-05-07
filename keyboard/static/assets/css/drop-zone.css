@@ -1,0 +1,59 @@
+
+
+
+/* ========================================== */
+
+.upload-file{
+	position: relative;
+}
+.drop-zone {
+    width: 100%;
+    height: 80vh;
+    margin-bottom: 1rem;
+    padding: 0px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-size: 15pt;
+    cursor: pointer;
+    color: #cccccc;
+    border: 1px dashed gray;
+    border-radius: 6px;
+}
+
+.drop-zone--over {
+    border-style: solid;
+}
+
+.drop-zone__input {
+    display: none;
+}
+
+.drop-zone__thumb {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background: red;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
+}
+
+.drop-zone__prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.drop-zone__prompt .image{
+    font-size: 30pt;
+    margin-bottom: -1rem;
+}

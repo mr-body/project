@@ -1,0 +1,70 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body{
+	box-sizing: border-box;
+	height: 100vh;
+	overflow: hidden;
+}
+
+#qrcode{
+	position: absolute;
+	right: 3%;
+	bottom: 3%;
+	background-color: white;
+	padding: 14px;
+	border-radius: 10px;
+}
+
+.main{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 70%;
+}
+
+.main .header{
+	margin-bottom: 50px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+h1{
+	text-transform: uppercase;
+	color: #ddd;
+}
+
+#code{
+	background-color: white;
+	font-size: 40pt;
+	letter-spacing: 30px;
+	padding: 20px;
+	border-radius: 10px;
+	border: 2px dashed #ddd;
+}
+
+#link{
+	font-size: 10pt;
+	color: #333;
+	margin-top: 20px;
+	text-decoration: underline;
+}
+
+button{
+	position: absolute;
+	bottom: 5%;
+	padding: 10px;
+	border: none;
+	cursor: pointer;
+	color: #333;
+	font-size: 12pt;
+	transition: 0.5s;
+}
+
+button:hover{
+	transform: scale(1.1);
+}

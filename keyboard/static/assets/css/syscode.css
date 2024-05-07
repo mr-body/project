@@ -1,0 +1,64 @@
+body{
+    background-color: transparent;
+}
+
+.tabContainer{
+    width: 100%;
+    height: calc(100vh - 90px);
+}
+.tabContainer .buttonContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tabContainer .buttonContainer button{
+    width: 140px;
+    font-size: 9pt;
+    height: 100%;
+    float: left;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: sans-serif;
+    background-color: #eee;
+}
+.tabContainer .buttonContainer button:hover{
+    background-color: #d7d4d4;
+}
+.tabContainer .tabPanel{
+    height: 85%;
+    color: black;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    display: none;
+}
+
+.campo_scan{
+    display: flex;
+}
+
+.campo_scan div{
+    width: 50%;
+}
+
+.animacao{
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 40%;
+}
+
+.campo_qr{
+    margin: 10px;
+}
+
+.drop-zone{
+    width: 100%;
+    height: 50vh;
+}

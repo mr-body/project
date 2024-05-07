@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Teclado Virtual</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./assets/css/keyboard.css') }}">
+</head>
+<body>
+    <h1 id="code" hidden>{{codigo}}</h1>
+    <!-- partial:index.partial.html -->
+<div class="base">
+  <div class="row">
+    <div class="key">~</div>
+    <div class="key" data-key="1">1</div>
+    <div class="key" data-key="2">2</div>
+    <div class="key" data-key="3">3</div>
+    <div class="key" data-key="4">4</div>
+    <div class="key" data-key="5">5</div>
+    <div class="key" data-key="6">6</div>
+    <div class="key" data-key="7">7</div>
+    <div class="key" data-key="8">8</div>
+    <div class="key" data-key="9">9</div>
+    <div class="key" data-key="0">0</div>
+    <div class="key" data-key="-">-</div>
+    <div class="key" data-key="=">=</div>
+    <div class="key" data-key="backspace" id="backspace">Backspace</div>
+  </div>
+  
+  <div class="row">
+    <div class="key" data-key="Tab" id="tab">TAB</div>
+    <div class="key" data-key="q">Q</div>
+    <div class="key" data-key="w">W</div>
+    <div class="key" data-key="e">E</div>
+    <div class="key" data-key="r">R</div>
+    <div class="key" data-key="t">T</div>
+    <div class="key" data-key="y">Y</div>
+    <div class="key" data-key="u">U</div>
+    <div class="key" data-key="i">I</div>
+    <div class="key" data-key="o">O</div>
+    <div class="key" data-key="p">P</div>
+    <div class="key" data-key="[">[</div>
+    <div class="key" data-key="]">]</div>
+    <div class="key" data-key="\" id="slash">\</div>
+  </div>
+  
+  <div class="row">
+    <div class="key" data-key="CapsLock" id="caps">CAPS</div>
+    <div class="key" data-key="a">A</div>
+    <div class="key" data-key="s">S</div>
+    <div class="key" data-key="d">D</div>
+    <div class="key" data-key="f">F</div>
+    <div class="key" data-key="g">G</div>
+    <div class="key" data-key="h">H</div>
+    <div class="key" data-key="j">J</div>
+    <div class="key" data-key="k">K</div>
+    <div class="key" data-key="l">L</div>
+    <div class="key" data-key=";">;</div>
+    <div class="key" data-key="'">'</div>
+    <div class="key" data-key="enter" id="enter">ENTER</div>
+  </div>
+  
+  <div class="row">
+    <div class="key" data-key="shift" id="shift">SHIFT</div>
+    <div class="key" data-key="z">Z</div>
+    <div class="key" data-key="x">X</div>
+    <div class="key" data-key="c">C</div>
+    <div class="key" data-key="v">V</div>
+    <div class="key" data-key="b">B</div>
+    <div class="key" data-key="n">N</div>
+    <div class="key" data-key="m">M</div>
+    <div class="key" data-key=",">,</div>
+    <div class="key" data-key=".">.</div>
+    <div class="key" data-key="/">/</div>
+    <div class="key" data-key="enter" id="shift">SHIFT</div>
+  </div>
+  
+  <div class="row">
+    <div class="key" data-key="Ctrl" id="ctrl">CTRL</div>
+    <div class="key" data-key="Windows" id="win">WIN</div>
+    <div class="key" data-key="Alt" id="alt">ALT</div>
+    <div class="key" data-key="space" id="space">SPACE</div>
+    <div class="key" data-key="Alt" id="alt">ALT</div>
+    <div class="key" data-key="Windows" id="win">WIN</div>
+    <div class="key" data-key="Ctrl" id="ctrl">CTRL</div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{{ url_for('jquery') }}"></script>
+<script type="text/javascript" src="{{ url_for('GlobalScript') }}"></script>
+<!-- partial -->
+    <script>
+        // Selecionando todos os elementos com a classe "key"
+        const keys = document.querySelectorAll('.key');
+        const code = document.getElementById('code').innerHTML;
+        // Adicionando um event listener para cada tecla    
+        keys.forEach(key => {
+          const keyType = key.dataset.key;
+          key.addEventListener('click', event => {
+            if (event.ctrlKey && keyType === 'c') {
+              fetch('/keyboard/' + code + "/Ctrl+C");
+            } else if (event.altKey && keyType === 'tab') {
+              fetch('/keyboard/' + code + "/Alt+Tab");
+            } else {
+              // Executar a lógica para a tecla individual
+              fetch('/keyboard/' + code + "/" + keyType);
+            }
+          });
+        });
+    </script>
+</body>
+</html>

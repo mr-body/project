@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OCR App</title>
+  </head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='./libs/icons/css/uicons-regular-rounded.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='./libs/boxicons/css/boxicons.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='./assets/css/scanner.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='./assets/css/drop-zone.css') }}">
+  <body>
+    <header>
+      <div>
+        <h3>OCR APP</h3>
+      </div>
+      <div>
+        <button>usar meu celular</button>
+      </div>
+    </header>
+    
+    <main>
+      <div class="campo_texto">
+        <div class="loading">
+          <img src="{{ url_for('static', filename='./assets/posts/img/gif/loader.gif') }}" alt="Loading..." />
+        </div>
+        <textarea id="scanned-text"></textarea>
+      </div>
+      <div class="campo_imagem">
+        <form id="upload-form" enctype="multipart/form-data">
+          <div class="upload-file">
+            <div class="drop-zone">
+              <span class="drop-zone__prompt">
+                <i class='bx bxs-cloud-upload' style="font-size: 140pt"></i><br><br>
+                Adicionar foto da página
+              </span>
+              <input type="file" name="image" class="drop-zone__input">
+            </div>
+          </div>
+          <input id="btnScan" type="submit" value="Scanear">
+        </form>
+      </div>
+    </main>
+
+    <script>
+      var loadingGif = document.querySelector('.loading');
+      var scannedText = document.getElementById('scanned-text');
+
+      document.getElementById('upload-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        var formData = new FormData();
+        var fileInput = document.querySelector('input[name="image"]');
+        var file = fileInput.files[0];
+        formData.append('image', file);
+
+        loadingGif.style.display = 'block'; // Show the loading GIF
+        scannedText.textContent = ''; // Clear the scanned text
+
+        var request = new XMLHttpRequest();
+
+        request.open('POST', './');
+        request.onload = function() {
+          if (request.status === 200) {
+            loadingGif.style.display = 'none'; // Hide the loading GIF
+
+            var response = JSON.parse(request.responseText);
+            scannedText.textContent = response.text;
+          }
+        };
+        
+        request.send(formData);
+      });
+    </script>
+
+    <script type="text/javascript" src="{{ url_for('drop_zone') }}"></script>
+  </body>
+</html>
